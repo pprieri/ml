@@ -1,13 +1,11 @@
-My-Professional-Certificates
-This repository includes all my certificate obtained from Specializations (4 courses each time) and indivual courses in the MOOC platform Coursera or Kaggle.
+This folder includes all my certificates obtained from Specializations (4 courses each time) and indivual courses in the MOOC platform Coursera or Kaggle.
 
-Even though skills are more important than certificates (my own personal Projects -cf. folder "My projects' - would be a better measure of my skills), it's
-useful as well to have a formal certification with which to confirm them.
+Even though skills are more important than certificates (my own personal Projects  would be a better measure of my skills, -cf. folder "My projects' -), it's
+important as well to have a formal certification with which to back up them.
 
-Most of certificates showcase my abilities in Python 3, specially in Data Science libraries: the standards (pandas, numpy, matplotlib, seaborn) and also ML ones like: sklearn, TensorFlow,
-Keras, CatBoost, xgboost, nltk, networkx.
+Most of certificates showcase my abilities in Python 3, specially in Data Science libraries: the standards (pandas, numpy, matplotlib, seaborn) and also ML ones like: sklearn, TensorFlow, Keras, xgboost, CatBoost, nltk, networkx.
 
-The certificates can be viewed by directly opening them in the folder, I also provided a summary view below:
+The certificates can be accessed opening them in current folder, I also provided a summary view below with the content and links:
 
 | Specialization  | Course  | Language/Packages | Length | Institute | Certificate | 
 | --- | --- | --- | ---  | --- | --- |
