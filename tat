@@ -1,0 +1,65 @@
+[33mcommit f541c5cba0ed98e7cc622b85e96c4e024ccefeac[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: pprieri <92263226+pprieri@users.noreply.github.com>
+Date:   Sun Oct 10 19:09:38 2021 +0200
+
+    Delete My Projects
+    
+    Delete to recreate "My Projects"
+
+[33mcommit 3923b71eaa887022dbae992162b7d74a7d86b99d[m
+Author: pprieri <92263226+pprieri@users.noreply.github.com>
+Date:   Sun Oct 10 19:07:45 2021 +0200
+
+    Create My Projects
+
+[33mcommit a38f49536fe233f40e0223fedaaed6153c179fe8[m
+Author: pprieri <92263226+pprieri@users.noreply.github.com>
+Date:   Sun Oct 10 19:06:15 2021 +0200
+
+    Update README.md
+    
+    +additional descriptions to Certifications
+
+[33mcommit 37248343202c039c5c3bca8f930e2a1ee96dd2ad[m
+Author: pprieri <92263226+pprieri@users.noreply.github.com>
+Date:   Sun Oct 10 19:04:10 2021 +0200
+
+    Create README.md
+    
+    Completed certifications summary and added links of Certifications
+
+[33mcommit ca422478ea80cb6ec1af0f5057c8a3b7ca91d47b[m
+Author: Pablo Prieri <pablo.prieri@gmail.com>
+Date:   Sun Oct 10 18:11:11 2021 +0200
+
+    Creating new folder
+
+[33mcommit 72f40eb49d5489095998e65019c1a74a0e906ea1[m
+Author: Pablo Prieri <pablo.prieri@gmail.com>
+Date:   Sun Oct 10 18:10:15 2021 +0200
+
+    Moving files to correct directory
+
+[33mcommit 795d613d7df3826dcddd373288883510331fcb7c[m
+Author: pprieri <92263226+pprieri@users.noreply.github.com>
+Date:   Sun Oct 10 18:03:36 2021 +0200
+
+    Add files via upload
+
+[33mcommit 026608ec2149c4d033757e108c13f5404df4bf4f[m
+Author: pprieri <92263226+pprieri@users.noreply.github.com>
+Date:   Sun Oct 10 17:40:31 2021 +0200
+
+    Create Certifications
+
+[33mcommit a7a4a2cfd632a5a59e18a3dd9910c2909a87f54d[m
+Author: Pablo Prieri <pablo.prieri@gmail.com>
+Date:   Sun Oct 10 17:21:04 2021 +0200
+
+    Add some lines to README.md
+
+[33mcommit 2de264a9e7825a7560b974a51d5a44f9fde31ad0[m
+Author: pprieri <92263226+pprieri@users.noreply.github.com>
+Date:   Sun Oct 10 17:07:37 2021 +0200
+
+    Initial commit
