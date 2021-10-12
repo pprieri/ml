@@ -2,4 +2,4 @@
 
 This repo contains both my ML projects and Certifications.
 
-Note: I am currently upload and enriching my ML projects folder, which will be completed in the following days
+Note: I am currently merging old repos + refactoring the code, I will be adding all my projects in the following days/weeks
