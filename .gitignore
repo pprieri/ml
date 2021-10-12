@@ -3,6 +3,9 @@ bin-debug/
 bin-release/
 [Oo]bj/
 [Bb]in/
+1C-predict-future-sales-data/
+/ml-projects/Time Series prediction/1C-predict-future-sales/1C-predict-future-sales-data/
+*.pkl
 
 # Other files and folders
 .settings/
