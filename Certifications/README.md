@@ -15,7 +15,7 @@ The certificates can be accessed opening them in current folder, I also provided
 |   | Natural Language Processing in TensorFlow | `TensorFlow` `Keras` `RNN` `LSTM` | 4 weeks  | | https://coursera.org/share/31242b660d00baa454bdfa1d1c2b83cf |
 |   | Sequences, Time Series and Predictions| `TensorFlow` `Keras` `RNN` `LSTM` | 4 weeks  | | https://coursera.org/share/18315624dfb1a80e119dce2f394dc4c1 |
 |   |  |   |   |   | |
-| Applied Data Science with Python | (see below) | Python | 24 weeks | University of Michigan | https://www.coursera.org/account/accomplishments/specialization/certificate/6C9KXQQ6LX3D
+| Applied Data Science with Python | (see below) | Python | 24 weeks | University of Michigan | https://coursera.org/share/81252528a51a2df5037fb59d9fe4ee6b
 |  | Introduction to Data Science in Python  |   `pandas, numpy` | 4 weeks || https://coursera.org/share/04146a87d3fa8e96d3117702b3b797a2 |
 |  | Applied Plotting, Charting & Data Representation in   |  `matplotlib` | 4 weeks ||  https://coursera.org/share/739f2c0788b3381444dd4ad90f59521b |
 |  | Applied Machine Learning in Python  |   `sklearn` | 4 weeks ||  https://coursera.org/share/f59d813a64270da724b52c98aff1d783 |
