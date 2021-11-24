@@ -9,6 +9,7 @@ bin-release/
 
 # Other files and folders
 .settings/
+Glooko.ipynb
 
 # Executables
 *.swf
