@@ -1,4 +1,8 @@
+from sklearn.model_selection import StratifiedKFold
+
 cv = CV.StratifiedKFold( y, n_folds = 5, shuffle = True, random_state = 5678 )
+skf = StratifiedKFold(y, n_splits=5, shuffle=True, random_state=0)
+
 
 for f, ( train_i, test_i ) in enumerate( cv ):
 
