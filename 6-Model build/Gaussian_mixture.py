@@ -57,3 +57,45 @@ compare_clusterings(results.loc[7, 0].y, results.loc[8, 0].y, '7 clusters vs. 8 
 #across seeds:
 compare_clusterings(results.loc[7, 1].y, results.loc[10, 2].y, '7 clusters vs. 10 clusters')
 compare_clusterings(results.loc[7, 2].y, results.loc[10, 0].y, '7 clusters vs. 10 clusters')
+
+#Histograms colored by PCA
+
+fig, axs = plt.subplots(6, 4, figsize=(16, 20))
+axs = axs.ravel()
+float_columns = [col for col in data.columns if data[col].dtype == 'float']
+for ax, f in zip(axs, float_columns):
+    for i in range(n_clusters):
+        h, edges = np.histogram(data[f][y == i], bins=np.linspace(-5, 5, 26))
+        ax.plot((edges[:-1] + edges[1:]) / 2, h, label=f"Cluster {i}", lw=3)
+    ax.set_title(f)
+axs[-2].axis('off')
+axs[-1].axis('off')
+plt.suptitle('Histograms of the float features of the 7 clusters', y=0.95, fontsize=20)
+plt.show()
+
+## Compute the PCA
+pca = PCA(n_components=3)
+p = pca.fit_transform(scaled)
+# PCA projection, random drawing order of points
+c = [prop_cycle.by_key()['color'][i % 10] for i in y]
+
+plt.figure(figsize=(8, 8))
+plt.scatter(p[:,0], p[:,1], s=1, label=f"Cluster {i}", c=c)
+plt.xlabel('PCA[0]')
+plt.ylabel('PCA[1]')
+plt.legend()
+plt.title('PCA projection')
+plt.show()
+
+#Compare 2 by 2 features colored by clusters
+# Projections of clusters to feature pairs
+# We see several strange shapes. The strange shapes suggest that we haven't yet found the best clustering.
+for f, g in [(f"f_{i:02d}", f"f_{j:02d}") for i in range(22, 29) for j in range(i+1, 29)]:
+    fig, axs = plt.subplots(1, n_clusters, figsize=(16, 5), sharex=True, sharey=True)
+    for i in range(n_clusters):
+        axs[i].scatter(data[f][y == i], data[g][y == i], s=1, label=f"Cluster {i}", color=prop_cycle.by_key()['color'][i % 10])
+        axs[i].set_xlabel(f)
+        axs[i].set_aspect('equal')
+    axs[0].set_ylabel(g)
+    if f == 'f_24' and g == 'f_25': plt.savefig(f'{f}_{g}.png')
+    plt.show()
