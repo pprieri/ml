@@ -19,6 +19,11 @@ plt.legend()
 plt.title('PCA projection')
 plt.show()
 
+## Heatmap of the components vs features
+pca_components = pd.DataFrame(data=np.transpose(pca.components_), columns=X_pca.columns)
+plt.figure(figsize=(25, 4))
+sns.heatmap(pca_components.transpose(), cmap='RdBu_r', center = 0.0)
+
 #Plot in 3d
 fig = plt.figure(figsize=(10,8))
 ax = plt.subplot(111, projection='3d', label="bla")

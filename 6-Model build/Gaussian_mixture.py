@@ -1,3 +1,33 @@
+## Analyze which covariances works best:
+
+fig, ax = plt.subplots(figsize=(8,4))
+
+n_components = range(2, 12)
+covariance_types = ['spherical', 'tied', 'diag', 'full']
+
+colores = ['red','blue','orange','green']
+
+j = 0
+for covariance_type in covariance_types:
+    valores_bic = []
+    valores_aic = []
+
+    for i in n_components:
+        modelo = GaussianMixture(n_components=i, covariance_type=covariance_type)
+        modelo = modelo.fit(scaled_data)
+        valores_bic.append(modelo.bic(scaled_data))
+        valores_aic.append(modelo.aic(scaled_data))
+
+    ax.plot(n_components, valores_bic, label=covariance_type, color = colores[j])
+    ax.plot(n_components, valores_aic, color = colores[j])
+    j += 1
+
+ax.set_title("Valores AIC / BIC")
+ax.set_xlabel("Número componentes")
+ax.legend();
+
+## once defined covariance, follow below
+
 components_min, components_max = 4, 25
 
 result_list = []
@@ -58,7 +88,7 @@ compare_clusterings(results.loc[7, 0].y, results.loc[8, 0].y, '7 clusters vs. 8 
 compare_clusterings(results.loc[7, 1].y, results.loc[10, 2].y, '7 clusters vs. 10 clusters')
 compare_clusterings(results.loc[7, 2].y, results.loc[10, 0].y, '7 clusters vs. 10 clusters')
 
-#Histograms colored by PCA
+#Histograms colored by Cluster
 
 fig, axs = plt.subplots(6, 4, figsize=(16, 20))
 axs = axs.ravel()
@@ -71,6 +101,16 @@ for ax, f in zip(axs, float_columns):
 axs[-2].axis('off')
 axs[-1].axis('off')
 plt.suptitle('Histograms of the float features of the 7 clusters', y=0.95, fontsize=20)
+plt.show()
+
+#Alternative: graph only the mean by features
+# Cluster means for every feature
+# Features where all cluster means coincide tend to be useless
+plt.figure(figsize=(16, 4))
+for i in range(gm.means_.shape[0]):
+    plt.scatter(np.arange(scaled.shape[1]), gm.means_[i])
+plt.xticks(ticks=np.arange(scaled.shape[1]), labels=scaled.columns)
+plt.title('Cluster means')
 plt.show()
 
 ## Compute the PCA
@@ -98,4 +138,13 @@ for f, g in [(f"f_{i:02d}", f"f_{j:02d}") for i in range(22, 29) for j in range(
         axs[i].set_aspect('equal')
     axs[0].set_ylabel(g)
     if f == 'f_24' and g == 'f_25': plt.savefig(f'{f}_{g}.png')
+    plt.show()
+
+##Plot covariance matrix
+
+# A covariance heatmap per cluster
+for i in range(len(gm.covariances_)):
+    print(f'Cluster {i}')
+    plt.figure(figsize=(16, 16))
+    sns.heatmap(gm.covariances_[i], annot=True, fmt='.1f', center=0)
     plt.show()
