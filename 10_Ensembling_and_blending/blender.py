@@ -5,7 +5,7 @@ X_blend, X_holdout, y_blend, y_holdout = train_test_split(X_train, y_train, test
 model_1.fit(X_blend, y_blend)
 model_2.fit(X_blend, y_blend)
 model_3.fit(X_blend, y_blend)
-
+##
 proba = np.stack([model_1.predict_proba(X_holdout)[:, 1],
                   model_2.predict_proba(X_holdout)[:, 1],
                   model_3.predict_proba(X_holdout)[:, 1]]).T
