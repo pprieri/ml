@@ -16,7 +16,7 @@ search_func = model_selection.GridSearchCV(estimator=svc,
                                            n_jobs=-1,
                                            cv=5)
 search_func.fit(X, y)
-
+#ss
 print (search_func.best_params_)
 print (search_func.best_score_)
 
