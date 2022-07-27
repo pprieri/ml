@@ -21,7 +21,7 @@ y = train.is_test
 print "cross-validating..."
 
 n_estimators = 100
-clf = RF( n_estimators = n_estimators, n_jobs = -1 )
+clf = RandomForestClassifier( n_estimators = n_estimators, n_jobs = -1 )
 
 predictions = np.zeros( y.shape )
 
