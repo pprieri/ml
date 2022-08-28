@@ -1,22 +1,29 @@
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import KFold
 
-kf = KFold(n_splits=2, shuffle=True, random_state=1)
+kf = KFold(n_splits=5, shuffle=True, random_state=1)
 
-for f, ( train_i, test_i ) in enumerate( cv ):
+X = df_train.drop('failure',axis=1)
+y = df_train['failure'].copy()
+predictions = y.copy()
+rf = RandomForestClassifier(random_state=51,n_jobs=-1)
 
-    print "# fold {}, {}".format( f + 1, ctime())
+for f, ( train_i, valid_i ) in enumerate( kf.split(X) ):
 
-    x_train = x.iloc[train_i]
-    x_test = x.iloc[test_i]
+    print("# fold {}".format( f + 1))
+
+    X_train = X.iloc[train_i]
+    X_valid = X.iloc[valid_i]
     y_train = y.iloc[train_i]
-    y_test = y.iloc[test_i]
+    y_valid = y.iloc[valid_i]
 
-    clf.fit( x_train, y_train )
+    rf.fit( X_train, y_train )
 
-    p = clf.predict_proba( x_test )[:,1]
+    p = rf.predict_proba( X_valid )[:,1]
 
-    auc = AUC( y_test, p )
-    print "# AUC: {:.2%}\n".format( auc )
+    auc = roc_auc_score( y_valid, p )
+    print("# AUC: {:.2%}\n".format( auc ))
 
-    predictions[ test_i ] = p
+    predictions[ valid_i ] = p
