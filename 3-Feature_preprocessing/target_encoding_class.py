@@ -9,7 +9,7 @@ class TargetEncode(BaseEstimator, TransformerMixin):
     def __init__(self, categories='auto', k=1, f=1,
                  noise_level=0, random_state=None):
         if type(categories)==str and categories!='auto':
-            self.categories = [categories]
+            self.categories = [categories] #in case we have only one
         else:
             self.categories = categories
         self.k = k

@@ -1,3 +1,5 @@
+#from this notebook:https://www.kaggle.com/code/xuedaolao/experimentation-3/edit
+
 class KMeansFeaturizer:
 
 
