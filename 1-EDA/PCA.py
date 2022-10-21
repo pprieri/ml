@@ -1,6 +1,4 @@
-
-
-
+import matplotlib.pyplot as plt
 
 #plot PCA, controling the colors with  prop_cycle
 
