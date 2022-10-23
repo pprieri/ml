@@ -8,12 +8,13 @@ sns.set(rc={'figure.figsize':(24,20)})
 sns.heatmap(df.corr(),annot=True,mask=mask,fmt='.2f')
 
 ##edited heatmap
+cols = ''
 import seaborn as sns
 import matplotlib.pyplot as plt
-mask = np.triu(np.ones_like(df_train[int_cols+num_cols].corr(), dtype=bool))
+mask = np.triu(np.ones_like(df_train[cols].corr(), dtype=bool))
 
 sns.set(rc={'figure.figsize':(24,20)})
-sns.heatmap(df_train[int_cols+num_cols].corr(),annot=True,mask=mask,fmt='.2f')
+sns.heatmap(df_train[cols].corr(),annot=True,mask=mask,fmt='.2f')
 
 ## Clustered heatmap
 

@@ -12,14 +12,13 @@ df.nunique(dropna=False)[df.nunique(dropna=False)==1] #check features (columns) 
 df.nunique(axis=1)==1 #Check rows w/ constant values: (if there are duplicates, understand why)
 
 #Check duplicated columns
+import cPickle as pickle
 dup_cols={}
 for i,c1 in enumerate(df_train.columns):
     for c2 in df_train.columns[i+1:]:
         if c2 not in dup_cols and np.all(df_train[c1] == df_train[c2]):
             dup_cols[c2] = c1
 
-
-import cPickle as pickle
 pickle.dump(dup_cols, open(‘dup_cols.p’,’w’),protocol=pickle.HIGHEST_PROTOCOL)
 traintest_drop(dup_cols.keys(),axis=1,inplace=True)
 
@@ -35,4 +34,5 @@ plt.plot(x,’.’)
 plt.scatter(range(len(x), x, c=y). To check if data is separated by class for ex
 #Row index vs Feature index + color with Feature value
 #- Plot index vs feature statistics => to detect if there are groups (ex: Kaggle compt course). 
-df.mean().plot(style=’.’) / df.mean().sort_values().plot(style=’.’). We could use it to our imagination to create some interactions
+df.mean().plot(style=’.’) / df.mean().sort_values().plot(style=’.’)
+# This last one is very useful We could use it to our imagination to create some interactions

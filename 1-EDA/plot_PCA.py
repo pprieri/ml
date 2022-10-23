@@ -2,15 +2,19 @@ import matplotlib.pyplot as plt
 
 #plot PCA, controling the colors with  prop_cycle
 
+df = 
+scaler = 
+df_scaled = 
+
 # Compute the PCA
 pca = PCA(n_components=3)
-p = pca.fit_transform(scaled)
+X_pca = pca.fit_transform(df_scaled)
 # PCA projection, random drawing order of points
 prop_cycle = plt.rcParams['axes.prop_cycle']
 c = [prop_cycle.by_key()['color'][i % 10] for i in y]
 
 plt.figure(figsize=(8, 8))
-plt.scatter(p[:,0], p[:,1], s=1, label=f"Cluster {i}", c=c)
+plt.scatter(X_pca[:,0], X_pca[:,1], s=1, label=f"Cluster {i}", c=c)
 plt.xlabel('PCA[0]')
 plt.ylabel('PCA[1]')
 plt.legend()
