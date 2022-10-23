@@ -4,33 +4,33 @@ import matplotlib.pyplot as plt
 from sklearn.feature_selection import mutual_info_regression,f_regression
 
 features = []
+df_copy = df.copy()
 
 num_cols=df[features].select_dtypes('number').columns.tolist()
-
 cat_cols=df[features].select_dtypes('object').columns.tolist()
 assert len(features) == len(num_cols)+len(cat_cols)
 
 for col in num_cols:
 
-    median_col = df_univariate[col].median()
+    median_col = df_copy[col].median()
 
-    df_univariate[col]=df_univariate[col].fillna(median_col)
+    df_copy[col]=df_copy[col].fillna(median_col)
 
 
 dict_reverse_encodings=dict()
 
 for col in cat_cols:
 
-    df_univariate[col]=df_univariate[col].fillna('Missing')
+    df_copy[col]=df_copy[col].fillna('Missing')
 
-    ordered_labels = pd.concat([df_univariate[col],df[target]],axis=1).groupby(col)[target].mean().sort_values().index.values
+    ordered_labels = pd.concat([df_copy[col],df[target]],axis=1).groupby(col)[target].mean().sort_values().index.values
     ordinal_mapping = {k: i for i, k in enumerate(ordered_labels, 0)}
     ordinal_mapping['Other']=-1
     reverse_ordinal_mapping = {i:k for k,i in ordinal_mapping.items()}
     
     dict_reverse_encodings[col]=reverse_ordinal_mapping #save for later
 
-    df_univariate[col] = df_univariate[col].map(ordinal_mapping)
+    df_copy[col] = df_copy[col].map(ordinal_mapping)
 
 f_test, _ = f_regression(X, y)
 f_test /= np.max(f_test)

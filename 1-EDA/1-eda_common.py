@@ -7,6 +7,7 @@ missingno.dendrogram(df_train)
 #check nulls in train/test
 nulls_train = df_train.isnull().sum()/df_train.shape[1]
 nulls_test = df_test.isnull().sum()/df_test.shape[1]
+null_cols =
 
 #plot null values of features sorted
 df_train[null_cols].isnull().mean().sort_values(
@@ -25,6 +26,7 @@ axs[1].set_xticklabels(nulls_test.index,rotation=45);
 
 nulls_train = df.isnull().sum()/df.shape[1]
 null_cols = list(nulls_train[nulls_train!=0].index)
+target = 
 
 def analyse_na_value(df, var):
 
@@ -34,7 +36,7 @@ def analyse_na_value(df, var):
     # observation was missing or 0 otherwise
     df[var] = np.where(df[var].isnull(), 1, 0)
 
-    tmp = df.groupby(var)['failure'].agg(['mean', 'std'])
+    tmp = df.groupby(var)[target].agg(['mean', 'std'])
 
     # plot into a bar graph
     tmp.plot(kind="barh", y="mean", legend=False,

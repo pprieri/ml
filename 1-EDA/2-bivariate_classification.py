@@ -4,6 +4,7 @@
 
 feature = ''
 target = ''
+df = 
 
 plt.style.use('seaborn-whitegrid')
 fig = plt.figure(figsize=(20,1))
