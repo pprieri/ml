@@ -2,7 +2,6 @@
 
 class KMeansFeaturizer:
 
-
     def __init__(self, k=100, target_scale=1, random_state=None):
         self.k = k
         self.target_scale = target_scale

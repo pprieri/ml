@@ -21,7 +21,6 @@ search_func =  HalvingRandomSearchCV(estimator=svc,
                                      n_jobs=-1,
                                      cv=5,
                                      random_state=0)
-                                                 )
 
 search_func.fit(X, y)
 

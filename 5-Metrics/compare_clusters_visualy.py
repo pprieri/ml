@@ -1,3 +1,10 @@
+from sklearn.metrics.cluster import adjusted_rand_score
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+results = #contains the clusters
+
 def compare_clusterings(y1, y2, title=''):
     """Show the adjusted rand score and plot the two clusterings in color"""
     ars = adjusted_rand_score(y1, y2)
