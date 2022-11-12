@@ -8,7 +8,8 @@
 
 #a) Heatmap_corr: check heatmap_corr.py
 
-#b) MI and F scores for regression: check MI_and_f_scores.py
+#b.1) mutual information regression: check plot_mutual_information_regression.py
+#b.2) Scatter plot + MI and F scores for regression: check MI_and_f_scores.py
 
 #c.1) Relplot and lmplots: 1 variable
 

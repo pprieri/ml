@@ -1,11 +1,15 @@
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+pd.set_option('display.max_rows', 600)
+pd.set_option('display.max_columns', 50)
+import numpy as np # linear algebra
+
 import os
 import warnings
 from pathlib import Path
 import math
 
 # Data Manipulation 
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+
 from pandas.api.types import CategoricalDtype
 from IPython.display import display
 
