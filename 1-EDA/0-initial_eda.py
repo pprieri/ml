@@ -11,6 +11,19 @@ df.nunique(dropna=False)
 df.nunique(dropna=False)[df.nunique(dropna=False)==1] #check features (columns) w/ constant value to drop them
 df.nunique(axis=1)==1 #Check rows w/ constant values: (if there are duplicates, understand why)
 
+##
+# The predictions should be probabilities between 0 and 1, but X contains some values outside this range.
+# The labels are all 0 or 1, as is to be expected.
+# There are no null values.
+
+print('Minimum and maximum X values:', X.min(), X.max())
+print('Unique labels:               ', np.unique(y))
+print('Null values in X and y:      ', np.isnan(X).sum(), np.isnan(y).sum())
+
+print(f"Values below zero:           {(X < 0).sum()}")
+print(f"Values above one:           {(X > 1).sum()}")
+print(f"Rows containing outliers:    {((X < 0) | (X > 1)).any(axis=1).sum()} of {X.shape[0]}")
+print(f"Columns containing outliers:  {((X < 0) | (X > 1)).any(axis=0).sum()} of {X.shape[1]}")
 #Check duplicated columns
 import cPickle as pickle
 dup_cols={}
