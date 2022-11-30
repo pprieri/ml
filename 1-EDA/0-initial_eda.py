@@ -1,7 +1,7 @@
 
 ## Check nulls, and see if there is a pattern/structure
-df.isnull.sum(axis=1)
-df.isnull(axis=0) 
+df.isnull().sum(axis=1)
+df.isnull().sum(axis=0) 
 # proportions of nulls
 df.isnull().sum()/df.shape[1]
 
