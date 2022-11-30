@@ -22,6 +22,8 @@ sns.barplot(nulls_test.index,nulls_test.values,ax=axs[1])
 axs[1].set_xticklabels(nulls_test.index,rotation=45);
 
 
+
+
 #Check influence of null values in target
 
 nulls_train = df.isnull().sum()/df.shape[1]
