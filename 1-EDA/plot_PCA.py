@@ -1,5 +1,15 @@
 import matplotlib.pyplot as plt
 
+%%time
+pca = PCA()
+Xt = pca.fit_transform(X)
+plt.plot(pca.explained_variance_ratio_.cumsum())
+plt.title('Principal components analysis')
+plt.xlabel('Component')
+plt.ylabel('Cumulative explained variance ratio')
+plt.show()
+
+print('Cumulative explained variance ratio for the first five components:', pca.explained_variance_ratio_.cumsum()[:5].round(2))
 #plot PCA, controling the colors with  prop_cycle
 
 df = 
