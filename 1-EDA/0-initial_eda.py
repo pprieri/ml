@@ -9,6 +9,7 @@ df.isnull().sum()/df.shape[1]
 #By using nunique() and .loc try to see if columns with certain unique values proportion tend to be grouped
 df.nunique(dropna=False)
 df.nunique(dropna=False)[df.nunique(dropna=False)==1] #check features (columns) w/ constant value to drop them
+## `dropna = False` makes nunique treat NaNs as a distinct value
 df.nunique(axis=1)==1 #Check rows w/ constant values: (if there are duplicates, understand why)
 
 ##
