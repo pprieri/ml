@@ -7,7 +7,7 @@ missingno.dendrogram(df_train)
 #check nulls in train/test
 nulls_train = df_train.isnull().sum()/df_train.shape[1]
 nulls_test = df_test.isnull().sum()/df_test.shape[1]
-null_cols =
+null_cols = list(nulls_train[nulls_train!=0].index)
 
 #plot null values of features sorted
 df_train[null_cols].isnull().mean().sort_values(

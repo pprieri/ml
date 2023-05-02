@@ -12,6 +12,14 @@ df.nunique(dropna=False)[df.nunique(dropna=False)==1] #check features (columns) 
 ## `dropna = False` makes nunique treat NaNs as a distinct value
 df.nunique(axis=1)==1 #Check rows w/ constant values: (if there are duplicates, understand why)
 
+#build a histogram of nunique to decide which proportion
+nunique = train.nunique(dropna=False)
+nunique[:10]
+plt.figure(figsize=(14,4))
+plt.hist(nunique.astype(float)/train.shape[0], bins=80, orientation='horizontal');
+mask = (nunique.astype(float)/train.shape[0] > 0.8)
+train.loc[:train.index[5], mask]
+
 ##
 # The predictions should be probabilities between 0 and 1, but X contains some values outside this range.
 # The labels are all 0 or 1, as is to be expected.
