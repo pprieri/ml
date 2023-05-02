@@ -6,4 +6,4 @@ The folders are numerated following the classical steps of any data science proj
 
 My Kaggle profile: https://www.kaggle.com/pabloprieri
 
-2 example Notebooks used for Competitions can be found in the folder Examples of Kaggle competitions
+2 example Notebooks used for Competitions can be found in the folder [Examples of Kaggle competitions](https://github.com/pprieri/ml/Examples_of_Kaggle_competitions/)
