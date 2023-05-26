@@ -12,6 +12,10 @@ df.nunique(dropna=False)[df.nunique(dropna=False)==1] #check features (columns) 
 ## `dropna = False` makes nunique treat NaNs as a distinct value
 df.nunique(axis=1)==1 #Check rows w/ constant values: (if there are duplicates, understand why)
 
+#Identify columns in test that have or don't have same labels as in train:
+cols_same_label = [col for col in X_test.columns if set(X_test[col]).issubset(set(X_train[col]))
+cols_diff_label = list(set(X_test.columns)-cols_same_label)
+
 #build a histogram of nunique to decide which proportion
 nunique = train.nunique(dropna=False)
 nunique[:10]
