@@ -10,7 +10,8 @@ class OptimizeAUC:
     This class is all you need to find best weights for  
     any model and for any metric and for any types of predictions. 
     With very small changes, this class can be used for optimization of  
-    weights in ensemble models of _any_ type of predictions 
+    weights in ensemble models of _any_ type of predictions
+    
     """ 
     def __init__(self): 
         self.coef_ = 0 
@@ -55,7 +56,8 @@ class OptimizeAUC:
         x_coef = X * self.coef_ 
         predictions = np.sum(x_coef, axis=1) 
         return predictions 
-    
+
+
 #use
 #we assume that we have 2 folds with, each fold with prediction from different models
 #more info: p. 278 of Abhishek's book
@@ -65,3 +67,5 @@ class OptimizeAUC:
 # auc = metrics.roc_auc_score(yfold1, opt_preds_fold1) 
 # print(f"Optimized AUC, Fold 1 = {auc}") 
 # print(f"Coefficients = {opt.coef_}")
+#    Note: even better to apply it in CV set-up and average the coefficients
+
