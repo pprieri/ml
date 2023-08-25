@@ -1,5 +1,28 @@
+import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_predict,StratifiedKFold
+from sklearn.metrics import roc_auc_score
+from time import ctime
+
 train = pd.read_csv( 'data/train.csv' )
 test = pd.read_csv( 'data/test.csv' )
+
+train = train.fillna(-1).drop(["id", "target"], axis=1)
+test = test.fillna(-1).drop(["id", axis=1])
+X = train.append(test)
+y = [0] * len(train) + [1] * len(test)
+
+model = RandomForestClassifier()
+cv_preds = cross_val_predict(model, X, y, cv=5, n_jobs=-1)
+print(roc_auc_score(y_true=y, y_score=cv_preds[:,1]))
+
+##for feat importance: uncomment below
+model.fit(X, y)
+##
+
+
+
 
 test.drop( 't_id', axis = 1, inplace = True )
 test['target'] = 0		# dummy for preserving column order when concatenating
@@ -10,7 +33,7 @@ test['is_test'] = 1
 orig_train = train.copy()
 assert( np.all( orig_train.columns == test.columns ))
 
-train = pd.concat(( orig_train, test ))
+train = pd.concat([orig_train, test],axis=0)
 train.reset_index( inplace = True, drop = True )
 
 x = train.drop( [ 'is_test', 'target' ], axis = 1 )
@@ -18,18 +41,16 @@ y = train.is_test
 
 #
 
-print "cross-validating..."
-
 n_estimators = 100
 clf = RandomForestClassifier( n_estimators = n_estimators, n_jobs = -1 )
 
-predictions = np.zeros( y.shape )
+predictions = np.zeros(y.shape)
 
-cv = CV.StratifiedKFold( y, n_folds = 5, shuffle = True, random_state = 5678 )
+cv = StratifiedKFold( y, n_folds = 5, shuffle = True, random_state = 5678 )
 
 for f, ( train_i, test_i ) in enumerate( cv ):
 
-	print "# fold {}, {}".format( f + 1, ctime())
+	print(f"# fold {f+1}, {ctime()}")
 
 	x_train = x.iloc[train_i]
 	x_test = x.iloc[test_i]
@@ -41,7 +62,7 @@ for f, ( train_i, test_i ) in enumerate( cv ):
 	p = clf.predict_proba( x_test )[:,1]
 
 	auc = AUC( y_test, p )
-	print "# AUC: {:.2%}\n".format( auc )
+	print(f"# AUC: {auc:.2%}\n")
 
 	predictions[ test_i ] = p
 

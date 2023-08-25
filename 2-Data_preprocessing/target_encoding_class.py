@@ -1,4 +1,5 @@
 #source: https://github.com/PacktPublishing/The-Kaggle-Book/blob/main/chapter_07/TargetEncode.py
+#inspired from: https://www.kaggle.com/code/ogrellier/python-target-encoding-for-categorical-features
 import numpy as np
 import pandas as pd
 
