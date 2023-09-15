@@ -15,4 +15,11 @@ def eval_gini(y_true, y_prob):
         gini += y_i * delta
         delta += 1 - y_i
     gini = 1 - 2 * gini / (ntrue * (n - ntrue))
-    return giniz
+    return gini
+
+#wrapper for Light GBM
+def gini_lgb(y_true, y_pred):
+    eval_name = 'normalized_gini_coef'
+    eval_result = eval_gini(y_true, y_pred)
+    is_higher_better = True
+    return eval_name, eval_result, is_higher_better
